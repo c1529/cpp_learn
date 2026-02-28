@@ -5,7 +5,7 @@ void swap(int* pa, int* pb) {
 	*pa = *pb;       // 将 pb 指向的值赋给 pa 指向的位置
 	*pb = temp;      // 将原值赋给 pb 指向的位置
 }
-void find_min_max(int arr[], int n, int* pmin, int* pmax) {
+void find_min_max(const int arr[], int n, int* pmin, int* pmax) {
 	*pmin = arr[0];
 	*pmax = arr[0];
 	for (int i = 1; i < n; i++) {
