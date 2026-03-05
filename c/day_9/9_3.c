@@ -19,6 +19,11 @@ int main() {
     for (int i = 0; i < 5; i++) {
         scanf("%d%s%d%d%d", &students[i].number, &students[i].name, &students[i].chinese, &students[i].math, &students[i].english);
     }
+    //用指针数组，每个元素只是一个指针（通常 8 字节），
+    //排序时 qsort 交换的是指针，而不是整个结构体。这样排序的移动成本大大降低，尤其当数据量较大时性能提升明显
+
+    //如果直接写 Student pstudents[5]，那只是另一个结构体数组，你需要手动从 students 复制数据（比如用循环或 memcpy），然后对它排序。
+    // 这样既增加了复制开销，又多占用了内存，且复制后的数据与原始数据是独立的，修改一方不会影响另一方，可能不符合需求。
     Student* pstudents[5] = {
         students,students + 1,students + 2,students + 3,students + 4
     }
